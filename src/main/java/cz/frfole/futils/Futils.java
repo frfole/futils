@@ -39,4 +39,12 @@ public class Futils {
         this.configManager.newFile(file, name);
         this.configManager.getConfig(name).load();
     }
+
+    /**
+     * Reloads Futils
+     */
+    public void reload() {
+        this.getCM().loadAll();
+        this.getCM().enablePAPI = plugin.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null;
+    }
 }
