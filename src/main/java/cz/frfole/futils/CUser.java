@@ -77,8 +77,9 @@ public class CUser {
      *
      * @param path  the path to help
      * @param index the page
+     * @param cmd   the command
      */
-    public void sendHelp(String path, int index) {
+    public void sendHelp(String path, int index, String cmd) {
         List<String> header = Parser.parse(path + ".header", this.futils, this.user);
         List<String> content = Parser.parse(path + ".content", this.futils, this.user);
         List<String> footer = Parser.parse(path + ".footer", this.futils, this.user);
@@ -96,7 +97,8 @@ public class CUser {
         out.replaceAll(s -> s.replaceAll("%page%", String.valueOf(finalIndex))
                 .replaceAll("%pageP%", String.valueOf(finalIndex - 1))
                 .replaceAll("%pageN%", String.valueOf(finalIndex + 1))
-                .replaceAll("%pageM%", String.valueOf(pageMax)));
+                .replaceAll("%pageM%", String.valueOf(pageMax))
+                .replaceAll("%cmd%", cmd));
         if (this.user instanceof Player) {
             Player player = (Player) this.user;
             if (this.futils.getCM().enablePAPI)
