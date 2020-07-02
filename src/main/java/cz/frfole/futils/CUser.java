@@ -19,6 +19,24 @@ public class CUser {
     }
 
     /**
+     * Returns {@link Futils}
+     *
+     * @return {@link Futils}
+     */
+    public Futils getFutils() {
+        return this.futils;
+    }
+
+    /**
+     * Returns {@link CommandSender}
+     *
+     * @return {@link CommandSender}
+     */
+    public CommandSender getUser() {
+        return this.user;
+    }
+
+    /**
      * Sends {@code String} message to user
      *
      * @param msg the message
