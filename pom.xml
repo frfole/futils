@@ -5,7 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>cz.frfole</groupId>
     <artifactId>futils</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub frfole Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/frfole/futils</url>
+        </repository>
+    </distributionManagement>
+
     <build>
         <plugins>
             <plugin>
