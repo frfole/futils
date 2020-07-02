@@ -56,17 +56,14 @@ public class CUser {
             Player player = (Player) this.user;
             if (this.futils.getCM().enablePAPI)
                 out = PlaceholderAPI.setPlaceholders(player, out);
-            if (this.futils.mM.isEnableEnhance()) {
-                for (String s : out) {
-                    try {
-                        player.sendMessage(ComponentSerializer.parse(s));
-                    } catch (Exception e) {
-                        player.sendMessage(s);
-                    }
+        }
+        if (this.futils.mM.isEnableEnhance()) {
+            for (String s : out)
+                try {
+                    user.sendMessage(ComponentSerializer.parse(s));
+                } catch (Exception e) {
+                    user.sendMessage(s);
                 }
-            } else {
-                this.sendMessage(out);
-            }
         } else {
             this.sendMessage(out);
         }
@@ -103,16 +100,14 @@ public class CUser {
             Player player = (Player) this.user;
             if (this.futils.getCM().enablePAPI)
                 out = PlaceholderAPI.setPlaceholders(player, out);
-            if (this.futils.mM.isEnableEnhance()) {
-                for (String s : out)
-                    try {
-                        player.sendMessage(ComponentSerializer.parse(s));
-                    } catch (Exception e) {
-                        player.sendMessage(s);
-                    }
-            } else {
-                this.sendMessage(out);
-            }
+        }
+        if (this.futils.mM.isEnableEnhance()) {
+            for (String s : out)
+                try {
+                    user.sendMessage(ComponentSerializer.parse(s));
+                } catch (Exception e) {
+                    user.sendMessage(s);
+                }
         } else {
             this.sendMessage(out);
         }
