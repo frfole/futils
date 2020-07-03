@@ -2,6 +2,7 @@ package cz.frfole.futils;
 
 import cz.frfole.futils.files.ConfigManager;
 import cz.frfole.futils.messages.MessageManager;
+import cz.frfole.futils.utils.HDUtil;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -18,6 +19,7 @@ public class Futils {
         aLF("config");
         this.getCM().enablePAPI = plugin.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null;
         this.mM = new MessageManager(this);
+        HDUtil.setStatus(plugin.getServer().getPluginManager().getPlugin("HolographicDisplays") != null);
     }
 
     /**
