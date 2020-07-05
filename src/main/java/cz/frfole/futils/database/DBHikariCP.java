@@ -22,7 +22,7 @@ public class DBHikariCP {
         YamlConfiguration conf = futils.getCM().getConfig("config").getConfig();
         this.config.setJdbcUrl("jdbc:mysql://" + conf.getString("mysql.ip")
                 + ":" + conf.getString("mysql.port")
-                + "/" + conf.getString("mysql.database"));
+                + "/" + conf.getString("mysql.database") + "?useSSL=false");
         this.config.setUsername(conf.getString("mysql.username"));
         this.config.setPassword(conf.getString("mysql.password"));
         this.config.addDataSourceProperty("cachePrepStmts", "true");
