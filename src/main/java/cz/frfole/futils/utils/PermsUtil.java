@@ -15,7 +15,7 @@ public class PermsUtil {
     public static boolean checkSendPerms(CUser user, String node, String path) {
         boolean out = user.getUser().hasPermission(node);
         if (!out)
-            user.sendMsg(path);
+            user.sendMsg(path, s -> s.replaceAll("%node%", node));
         return out;
     }
 

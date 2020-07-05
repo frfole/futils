@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.UnaryOperator;
 
 public class CUser {
     private final CommandSender user;
@@ -69,12 +70,23 @@ public class CUser {
      * @param path the path to message(s)
      */
     public void sendMsg(String path) {
+        this.sendMsg(path, o -> o);
+    }
+
+    /**
+     * Sends parsed and replaced message(s) from messages.yml to user
+     *
+     * @param path the path to message(s)
+     * @param o    UnaryOperator
+     */
+    public void sendMsg(String path, UnaryOperator<String> o) {
         List<String> out = Parser.parse(path, this.futils, this.user);
         if (this.user instanceof Player) {
             Player player = (Player) this.user;
             if (this.futils.getCM().enablePAPI)
                 out = PlaceholderAPI.setPlaceholders(player, out);
         }
+        out.replaceAll(o);
         if (this.futils.mM.isEnableEnhance()) {
             for (String s : out)
                 try {
